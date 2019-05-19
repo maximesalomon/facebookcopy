@@ -1,13 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-const Home = () => {
-  return <h1>React + React Router + Redux Starter Kit</h1>;
-}
-
-const About = () => {
-  return <h1>About</h1>;
-}
+import Home from './components/Home';
+import About from './components/About';
 
 const App = () => {
   return (
