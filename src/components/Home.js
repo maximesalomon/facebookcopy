@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Home = () => {
-    return <h1>React + React Router + Redux Starter Kit</h1>;
+    return <h1>Facebook 🐈</h1>;
 }
 
 export default Home;
