@@ -9,7 +9,7 @@ import './shared/reset.css';
 const App = () => {
   return (
     <Router>
-      <ThemeProvider theme={{ mode: 'dark' }}>
+      <ThemeProvider theme={{ mode: 'light' }}>
         <div className="App">
           <Route path="/" exact component={Navbar} />
         </div>

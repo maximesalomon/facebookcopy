@@ -5,5 +5,19 @@ const navbarBackgroundColor = theme('mode', {
     dark: '#222326',
 });
 
-export default navbarBackgroundColor;
+const dropShadow = theme('mode', {
+    light: '0px 4px 2px #E5E5E5',
+    dark: '0px 4px 2px #25262A',
+});
+
+const textColor = theme('mode', {
+    light: '#0E1012',
+    dark: '#FFFFFF',
+});
+
+export {
+    navbarBackgroundColor,
+    dropShadow,
+    textColor
+}
 
