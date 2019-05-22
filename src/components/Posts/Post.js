@@ -11,11 +11,11 @@ const PostContainer = styled.section`
     border-radius: 8px;
 `
 
-const Post = () => {
+const Post = ({post}) => {
   return (
     <PostContainer>
         <PostProfile/>
-        <PostContent/>
+        <PostContent post={post}/>
     </PostContainer>
   );
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 
@@ -47,10 +47,11 @@ const AddPostAsset = styled.img`
 `
 
 const AddPost = () => {
+    const [postText, setPostText] = useState('');
   return (
     <AddPostContainer>
         <AddPostProfilePicture alt="tom-brady" src='./img/tom-brady-profile-picture.png'/>
-        <AddPostInput placeholder='Add a post'/>
+        <AddPostInput placeholder='Add a post' value={postText} onChange={e => setPostText(e.target.value)}/>
         <AddPostAsset alt='Button to add asset' src='./img/desktop-upload-asset.png'/>
     </AddPostContainer>
   );

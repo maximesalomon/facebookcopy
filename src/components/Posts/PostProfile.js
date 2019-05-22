@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
 const PostProfileContainer = styled.div`
     display: flex;
@@ -27,6 +28,12 @@ const PostDetails = styled.p`
     font-family: 'Roboto';
     color: #C4C4C4;
     margin-top: 2px;
+    a:link {
+      text-decoration: none;
+    }
+    a:visited {
+      color: #C4C4C4;
+    }
 `
 const PostSettings = styled.img`
   margin-top: 14px;
@@ -41,7 +48,7 @@ const PostProfile = () => {
         <img alt="tom-brady" src="./img/tom-brady-profile-picture.png"/>
         <PostProfileInfos>
           <PostProfileUserName>Tom Brady</PostProfileUserName>
-          <PostDetails>7 min</PostDetails>
+          <PostDetails><Link to='/posts/1'>7 min</Link></PostDetails>
         </PostProfileInfos>
         <PostSettings src="./img/post-dots.png"/>
     </PostProfileContainer>

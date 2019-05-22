@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
 import { mobileFacebookLogo, desktopFacebookLogo } from '../../../shared/theme';
 
@@ -24,7 +25,7 @@ const FBLogo = styled.div`
 
 const NavbarLogo = () => {
   return (
-    <FBLogo></FBLogo>
+    <Link to='/'><FBLogo></FBLogo></Link>
   );
 }
 

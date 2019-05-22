@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
+import { connect } from 'react-redux';
+
 import AddPost from '../../Posts/AddPost'
-import Post from '../../Posts/Post'
+import PostList from '../../Posts/PostList';
+
 import { bgColor } from '../../../shared/theme';
 
 const FeedContainer = styled.div`
@@ -19,15 +22,23 @@ const FeedContainer = styled.div`
     width: 100%;
 `
 
-const Feed = () => {
-  return (
-    <FeedContainer>
-      <AddPost/>
-      <Post/>
-      <Post/>
-      <Post/>
-    </FeedContainer>
-  );
+class Feed extends Component {
+  render() {
+    const {posts} = this.props;
+
+    return (
+      <FeedContainer>
+        <AddPost/>
+        <PostList posts={posts}/>
+      </FeedContainer>
+    );
+  }
 }
 
-export default Feed;
+const mapStateToProps = (state) => {
+  return {
+    posts: state.post.posts,
+  }
+}
+
+export default connect(mapStateToProps)(Feed);

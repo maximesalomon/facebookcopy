@@ -14,10 +14,10 @@ const PostAsset = styled.img`
   width: 100%;
 `
 
-const PostContent = () => {
+const PostContent = ({post}) => {
   return (
     <>
-        <PostText>Sunday brunch 🙈</PostText>
+        <PostText>{post.text}</PostText>
         <PostAsset src='./img/brunch.png'/>
     </>
   );
