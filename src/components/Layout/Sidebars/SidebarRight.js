@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { sidebarBgColor } from '../../../shared/theme';
+
 const SidebarRight = styled.div`
     @media (max-width: 768px) {
         display:none;
@@ -8,9 +10,9 @@ const SidebarRight = styled.div`
     @media (min-width: 1240px) {
         position: absolute;
         right: 0px;
-        height: 100vh;
+        height: calc(100% - 64px);
         width: 296px;
-        background-color: lightgray;
+        background-color: ${sidebarBgColor};
     }
 `
 

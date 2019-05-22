@@ -6,8 +6,8 @@ const navbarBackgroundColor = theme('mode', {
 });
 
 const dropShadow = theme('mode', {
-    light: '0px 4px 2px #E5E5E5',
-    dark: '0px 4px 2px #25262A',
+    light: '0px 2px 2px #E5E5E5',
+    dark: '0px 2px 2px #25262A',
 });
 
 const textColor = theme('mode', {
@@ -40,6 +40,16 @@ const desktopFacebookLogo = theme('mode', {
     dark: './img/desktop-facebook-logo.png',
 });
 
+const bgColor = theme('mode', {
+    light: '#F2F4F5',
+    dark: '#010001',
+});
+
+const sidebarBgColor = theme('mode', {
+    light: '#FFFFFF',
+    dark: '#222326',
+});
+
 export {
     navbarBackgroundColor,
     dropShadow,
@@ -48,6 +58,8 @@ export {
     mobileSearchLoopIcon,
     mobileMessengerIcon,
     mobileFacebookLogo,
-    desktopFacebookLogo
+    desktopFacebookLogo,
+    bgColor,
+    sidebarBgColor
 }
 
