@@ -2,25 +2,28 @@ import React from 'react';
 import styled from 'styled-components';
 
 const PostContentContainer = styled.div`
-    background-color: lightgray;
     height: 400px;
     width: 100%;
     padding-top: 16px;
 `
 
-const PostText = styled.div`
-    
+const PostText = styled.p`
+    padding-left: 24px;
+    font-family: 'Roboto';
+    color: #3D4048;
+    font-size: 18px;
 `
 
-const PostAsset = styled.div`
-
+const PostAsset = styled.img`
+  margin-top: 16px;
+  width: 100%;
 `
 
 const PostContent = () => {
   return (
     <PostContentContainer>
-        <PostText/>
-        <PostAsset/>
+        <PostText>Sunday brunch 🙈</PostText>
+        <PostAsset src='./img/brunch.png'/>
     </PostContentContainer>
   );
 }

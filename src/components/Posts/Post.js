@@ -7,6 +7,7 @@ import PostProfile from './PostProfile';
 const PostContainer = styled.section`
     margin: 32px auto;
     width: 640px;
+    background-color: white;
 `
 
 const Post = () => {

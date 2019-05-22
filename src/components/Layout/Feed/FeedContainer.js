@@ -19,9 +19,6 @@ const Feed = () => {
   return (
     <FeedContainer>
       <Post/>
-      <Post/>
-      <Post/>
-      <Post/>
     </FeedContainer>
   );
 }
