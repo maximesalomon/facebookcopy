@@ -13,6 +13,7 @@ const postReducer = (state = initState, action) => {
         case 'ADD_POST':
             console.log(action.post);
             return state;
+            break;
         default:
             return state;
     }
