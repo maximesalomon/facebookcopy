@@ -3,6 +3,8 @@ import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Navbar from './components/Layout/Navbar/Navbar';
+import SidebarLeftContainer from './components/Layout/Sidebars/SidebarLeft';
+import SidebarRightContainer from './components/Layout/Sidebars/SidebarRight';
 
 import './shared/reset.css';
 
@@ -11,7 +13,11 @@ const App = () => {
     <Router>
       <ThemeProvider theme={{ mode: 'light' }}>
         <div className="App">
-          <Route path="/" exact component={Navbar} />
+          <Route path="/" exact >
+            <Navbar/>
+            <SidebarRightContainer/>
+            <SidebarLeftContainer/>
+          </Route>
         </div>
       </ThemeProvider>
     </Router>
