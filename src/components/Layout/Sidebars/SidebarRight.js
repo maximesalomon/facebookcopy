@@ -8,9 +8,10 @@ const SidebarRight = styled.div`
         display:none;
     }
     @media (min-width: 1240px) {
-        position: absolute;
+        position: fixed;
+        margin-top: 64px;
         right: 0px;
-        height: calc(100% - 64px);
+        height: 100%;
         width: 296px;
         background-color: ${sidebarBgColor};
     }

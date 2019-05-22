@@ -1,7 +1,7 @@
 import theme from 'styled-theming';
 
 const navbarBackgroundColor = theme('mode', {
-    light: '#fffff',
+    light: '#ffffff',
     dark: '#222326',
 });
 

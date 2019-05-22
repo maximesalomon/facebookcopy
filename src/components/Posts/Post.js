@@ -8,6 +8,7 @@ const PostContainer = styled.section`
     margin: 32px auto;
     width: 640px;
     background-color: white;
+    border-radius: 8px;
 `
 
 const Post = () => {
