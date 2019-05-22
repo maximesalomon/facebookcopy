@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { searchBarColor, mobileMessengerIcon, mobileSearchLoopIcon } from '../../../shared/theme';
+import { searchBarColor } from '../../../shared/theme';
 
 const SearchBar = styled.div`
   @media (max-width: 768px) {
@@ -41,10 +41,14 @@ const SearchBarInput = styled.input`
   @media (min-width: 768px) {
     margin-top: 12px;
     height: 40px;
-    width: 368px;
+    min-width: 200px;
+    width: 16vw;
     border-radius: 20px;
     border: none;
     background-color: ${searchBarColor};
+  }
+  @media (min-width: 1556px) {
+    width: 368px;
   }
 `
 
