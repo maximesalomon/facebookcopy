@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { mobileFacebookLogo, desktopFacebookLogo } from '../../../shared/theme';
+
 const FBLogo = styled.div`
   @media (max-width: 768px) {
       height: 50px;
       width: 128px;
       margin: 8px 16px;
-      background-image: url("./img/facebook-logo.png");
+      background-image: url(${mobileFacebookLogo});
       background-repeat: no-repeat;
       border: none;
     }
@@ -14,7 +16,7 @@ const FBLogo = styled.div`
     height: 50px;
     width: 50px;
     margin: 8px 16px;
-    background-image: url("./img/facebook-logo-f.png");
+    background-image: url(${desktopFacebookLogo});
     background-repeat: no-repeat;
     border: none;
   }

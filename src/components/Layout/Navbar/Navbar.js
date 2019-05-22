@@ -9,6 +9,7 @@ import { navbarBackgroundColor, dropShadow, textColor } from '../../../shared/th
 
 const NavbarContainer = styled.div`
   @media (max-width: 768px) {
+    z-index: 2;
     height: 104px;
     width: 100%;
     background-color: ${navbarBackgroundColor};

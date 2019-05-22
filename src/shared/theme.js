@@ -15,9 +15,39 @@ const textColor = theme('mode', {
     dark: '#FFFFFF',
 });
 
+const searchBarColor = theme('mode', {
+    light: '#ECEEF2',
+    dark: '#68676A',
+});
+
+const mobileMessengerIcon = theme('mode', {
+    light: './img/mobile-messenger-icon.png',
+    dark: './img/mobile-messenger-icon.png',
+});
+
+const mobileSearchLoopIcon = theme('mode', {
+    light: './img/mobile-search-loop-icon.png',
+    dark: './img/mobile-search-loop-icon.png',
+});
+
+const mobileFacebookLogo = theme('mode', {
+    light: './img/mobile-facebook-logo.png',
+    dark: './img/mobile-facebook-logo.png',
+});
+
+const desktopFacebookLogo = theme('mode', {
+    light: './img/desktop-facebook-logo.png',
+    dark: './img/desktop-facebook-logo.png',
+});
+
 export {
     navbarBackgroundColor,
     dropShadow,
-    textColor
+    textColor,
+    searchBarColor,
+    mobileSearchLoopIcon,
+    mobileMessengerIcon,
+    mobileFacebookLogo,
+    desktopFacebookLogo
 }
 
