@@ -9,7 +9,13 @@ const initState = {
 }
 
 const postReducer = (state = initState, action) => {
-    return state;
+    switch (action.type) {
+        case 'ADD_POST':
+            console.log(action.post);
+            return state;
+        default:
+            return state;
+    }
 }
 
 export default postReducer;

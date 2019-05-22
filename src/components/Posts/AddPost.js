@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-
+import { connect } from 'react-redux';
+import { createPost } from '../../store/actions/postActions';
 
 const AddPostContainer = styled.div`
     margin: 32px auto;
@@ -46,15 +47,43 @@ const AddPostAsset = styled.img`
     }
 `
 
-const AddPost = () => {
-    const [postText, setPostText] = useState('');
-  return (
-    <AddPostContainer>
-        <AddPostProfilePicture alt="tom-brady" src='./img/tom-brady-profile-picture.png'/>
-        <AddPostInput placeholder='Add a post' value={postText} onChange={e => setPostText(e.target.value)}/>
-        <AddPostAsset alt='Button to add asset' src='./img/desktop-upload-asset.png'/>
-    </AddPostContainer>
-  );
+class AddPost extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            text: '',
+        }
+    }
+    render() {
+
+    const handleChange = (e) => {
+        this.setState({
+            text: e.target.value
+          });
+    }
+    
+    const handleSubmit = (e) => {
+        if (e.keyCode === 13) {
+            e.preventDefault();
+            this.props.createPost(this.state)
+        }
+    }
+        return (
+            <AddPostContainer>
+                <AddPostProfilePicture alt="tom-brady" src='./img/tom-brady-profile-picture.png'/>
+                <form onKeyDown={handleSubmit}>
+                    <AddPostInput placeholder='Add a post' value={this.text} onChange={e => handleChange(e)}/>
+                </form>
+                <AddPostAsset alt='Button to add asset' src='./img/desktop-upload-asset.png'/>
+            </AddPostContainer>
+        );
+    }
 }
 
-export default AddPost;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createPost: (post) => dispatch(createPost(post))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(AddPost);
