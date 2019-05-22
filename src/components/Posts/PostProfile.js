@@ -28,6 +28,12 @@ const PostDetails = styled.p`
     color: #C4C4C4;
     margin-top: 2px;
 `
+const PostSettings = styled.img`
+  margin-top: 14px;
+  margin-left: 410px;
+  width: 20px;
+  height: 6px;
+`
 
 const PostProfile = () => {
   return (
@@ -37,7 +43,7 @@ const PostProfile = () => {
           <PostProfileUserName>Tom Brady</PostProfileUserName>
           <PostDetails>7 min</PostDetails>
         </PostProfileInfos>
-        
+        <PostSettings src="./img/post-dots.png"/>
     </PostProfileContainer>
   );
 }
