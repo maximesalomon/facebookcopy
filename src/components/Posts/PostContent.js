@@ -1,13 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const PostContentContainer = styled.div`
-    height: 400px;
-    width: 100%;
-    padding-top: 16px;
-`
-
 const PostText = styled.p`
+    padding-top: 16px;
     padding-left: 24px;
     font-family: 'Roboto';
     color: #3D4048;
@@ -21,10 +16,10 @@ const PostAsset = styled.img`
 
 const PostContent = () => {
   return (
-    <PostContentContainer>
+    <>
         <PostText>Sunday brunch 🙈</PostText>
         <PostAsset src='./img/brunch.png'/>
-    </PostContentContainer>
+    </>
   );
 }
 

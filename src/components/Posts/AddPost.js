@@ -17,7 +17,7 @@ const AddPostProfilePicture = styled.img`
 
 const AddPostInput = styled.input`
     height: 48px;
-    width: 480px;
+    width: 464px;
     background-color: #F2F4F5;
     border: none;
     border-radius: 8px;
@@ -25,10 +25,24 @@ const AddPostInput = styled.input`
     outline: none;
     ::placeholder {
         color: #3D4048;
-        padding-left: 192px;
+        padding-left: 190px;
         font-size: 18px;
         font-weight: 800;
         font-family: 'Roboto';
+    }
+`
+
+const AddPostAsset = styled.img`
+    height: 50px;
+    width: 50px;
+    margin-top: 16px;
+    margin-left: 16px;
+    border-radius: 100px;
+    &:hover {
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+    &:active {
+        box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
 `
 
@@ -37,6 +51,7 @@ const AddPost = () => {
     <AddPostContainer>
         <AddPostProfilePicture alt="tom-brady" src='./img/tom-brady-profile-picture.png'/>
         <AddPostInput placeholder='Add a post'/>
+        <AddPostAsset alt='Button to add asset' src='./img/desktop-upload-asset.png'/>
     </AddPostContainer>
   );
 }
