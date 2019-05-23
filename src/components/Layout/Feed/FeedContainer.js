@@ -27,7 +27,6 @@ const FeedContainer = styled.div`
 class Feed extends Component {
   render() {
     const {posts} = this.props;
-
     return (
       <FeedContainer>
         <AddPost/>
@@ -38,10 +37,10 @@ class Feed extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  console.log(state.post.posts);
+  console.log(state.firestore.ordered.posts);
   return {
-    posts: state.post.posts,
-    // posts: state.firestore.ordered.posts
+    posts: state.firestore.ordered.posts,
   }
 }
 
