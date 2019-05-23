@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { NavLink } from "react-router-dom";
 
 const SettingsIcon = styled.img`
   @media (max-width: 768px) {
@@ -16,7 +17,7 @@ const SettingsIcon = styled.img`
 
 const NavbarSettings = () => {
   return (
-    <SettingsIcon src='./img/desktop-settings-icon.png'/>
+    <NavLink to='/signin'><SettingsIcon src='./img/desktop-settings-icon.png'/></NavLink>
   );
 }
 
