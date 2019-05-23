@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { NavLink } from "react-router-dom";
+import { connect } from 'react-redux';
+import { signOut } from '../../../store/actions/authActions'
 
 const SettingsIcon = styled.img`
   @media (max-width: 768px) {
@@ -15,10 +16,16 @@ const SettingsIcon = styled.img`
   }
 `
 
-const NavbarSettings = () => {
+const NavbarSettings = (props) => {
   return (
-    <NavLink to='/signin'><SettingsIcon src='./img/desktop-settings-icon.png'/></NavLink>
+    <a onClick={props.signOut}><SettingsIcon src='./img/desktop-settings-icon.png'/></a>
   );
 }
 
-export default NavbarSettings;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signOut: () => dispatch(signOut())
+  }
+}
+
+export default connect(null, mapDispatchToProps)(NavbarSettings);
