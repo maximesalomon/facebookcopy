@@ -39,9 +39,9 @@ class Feed extends Component {
 const mapStateToProps = (state) => {
   console.log(state.post.posts);
   console.log(state.firestore.ordered.posts);
-  return {
-    posts: state.firestore.ordered.posts,
-  }
+  if(state.firestore.ordered.posts) {
+    return { posts: state.firestore.ordered.posts }
+  } else return { posts: state.post.posts }
 }
 
 export default compose(

@@ -5,7 +5,7 @@ export const createPost = (post) => (dispatch, getState, { getFirebase, getFires
         userID: 1,
         createdAt: new Date()
     }).then(() => {
-        dispatch({ type: 'ADD_POST', post});
+        dispatch({ type: 'ADD_POST', post });
     }).catch((err) => {
         console.log("ERROR");
     })
