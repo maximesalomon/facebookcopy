@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+
 import { createPost } from '../../store/actions/postActions';
 
 const AddPostContainer = styled.div`

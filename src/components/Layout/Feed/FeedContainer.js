@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
 
 import AddPost from '../../Posts/AddPost'
 import PostList from '../../Posts/PostList';
@@ -36,9 +38,16 @@ class Feed extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
     posts: state.post.posts,
+    // posts: state.firestore.ordered.posts
   }
 }
 
-export default connect(mapStateToProps)(Feed);
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    { collection: 'posts' }
+  ])
+)(Feed);
