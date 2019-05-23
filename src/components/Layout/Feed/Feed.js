@@ -25,21 +25,28 @@ const FeedContainer = styled.div`
 `
 
 class Feed extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
-    const {posts} = this.props;
+    const { auth, posts } = this.props;
+    const postList = auth === true ? null : <PostList posts={posts}/>;
+    console.log(auth);
     return (
       <FeedContainer>
         <AddPost/>
-        <PostList posts={posts}/>
+        {postList}
       </FeedContainer>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.firestore.ordered.posts);
   if(state.firestore.ordered.posts) {
-    return { posts: state.firestore.ordered.posts }
+    return {
+      posts: state.firestore.ordered.posts,
+      auth: state.firebase.auth.isEmpty
+     }
   } else return { posts: state.post.posts }
 }
 

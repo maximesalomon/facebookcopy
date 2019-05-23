@@ -1,29 +1,28 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { connect } from 'react-redux';
 
 import Layout from './components/Layout/Layout';
-import FeedContainer from './components/Layout/Feed/FeedContainer';
-import Post from './components/Posts/Post';
+import Feed from './components/Layout/Feed/Feed';
 import SignIn from './components/Auth/SignIn';
 
 import './shared/reset.css';
 
-const App = () => {
+const App = (props) => {
   return (
+    <>
     <Router>
       <ThemeProvider theme={{ mode: 'light' }}>
         <div className="App">
           <Route path="/" component={Layout}/>
-          <Route path="/" exact component={FeedContainer}/>
+          <Route path="/" exact component={Feed}/>
           <Route path="/signin" component={SignIn}/>
-          <Route path="/posts/:id" component={Post}/>
         </div>
       </ThemeProvider>
     </Router>
+    </>
   );
 }
-
-
 
 export default App;

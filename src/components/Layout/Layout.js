@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 import Navbar from './Navbar/Navbar';
 import SidebarLeftContainer from './Sidebars/SidebarLeft';
@@ -15,11 +14,4 @@ const Layout = () => {
   );
 }
 
-const mapStateToProps = (state) => {
-  console.log(state)
-  return {
-
-  }
-}
-
-export default connect(mapStateToProps)(Layout);
+export default Layout;
