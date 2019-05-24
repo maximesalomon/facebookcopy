@@ -1,14 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import moment from 'moment';
 
 const PostProfile = (props) => {
   const { authorFirstName, authorLastName} = props.post
+  console.log(props.post);
   return (
     <PostProfileContainer>
         <img alt="tom-brady" src="./img/tom-brady-profile-picture.png"/>
         <PostProfileInfos>
           <PostProfileUserName>{authorFirstName} {authorLastName}</PostProfileUserName>
-          <PostDetails>7 min</PostDetails>
+          <PostDetails>{ moment(props.post.createdAt.toDate()).fromNow()}</PostDetails>
         </PostProfileInfos>
         {/* <PostSettings src="./img/post-dots.png"/> */}
     </PostProfileContainer>
