@@ -1,6 +1,6 @@
 {
   "name": "facebookcopy",
-  "homepage": "https://loving-pare-c6b72c.netlify.com/",
+  "homepage": "https://facebook-a5382.firebaseapp.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -51,6 +51,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/maximesalomon/facebookcopy/issues"
-  },
-  "homepage": "https://github.com/maximesalomon/facebookcopy#readme"
+  }
 }
