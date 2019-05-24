@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import NotificationsList from '../../Notifications/NotificationsList'
 import { sidebarBgColor } from '../../../shared/theme';
 
 const SidebarLeft = styled.div`
@@ -19,7 +20,9 @@ const SidebarLeft = styled.div`
 
 const SidebarLeftContainer = () => {
   return (
-    <SidebarLeft/>
+    <SidebarLeft>
+      <NotificationsList/>
+    </SidebarLeft>
   );
 }
 
