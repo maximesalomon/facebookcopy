@@ -10,6 +10,19 @@ import PostList from '../../Posts/PostList';
 
 import { bgColor } from '../../../shared/theme';
 
+class Feed extends Component {
+  render() {
+    const { auth, posts } = this.props;
+    const feed = auth === true ? null :<><AddPost/><PostList posts={posts}/></>;
+    console.log(auth);
+    return (
+      <FeedContainer>
+        {feed}
+      </FeedContainer>
+    );
+  }
+}
+
 const FeedContainer = styled.div`
   @media (max-width: 768px) {
     margin-top: 104px;
@@ -24,30 +37,11 @@ const FeedContainer = styled.div`
     width: 100%;
 `
 
-class Feed extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    const { auth, posts } = this.props;
-    const postList = auth === true ? null : <PostList posts={posts}/>;
-    console.log(auth);
-    return (
-      <FeedContainer>
-        <AddPost/>
-        {postList}
-      </FeedContainer>
-    );
-  }
-}
-
 const mapStateToProps = (state) => {
-  if(state.firestore.ordered.posts) {
-    return {
+  return {
       posts: state.firestore.ordered.posts,
       auth: state.firebase.auth.isEmpty
      }
-  } else return { posts: state.post.posts }
 }
 
 export default compose(
