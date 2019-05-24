@@ -12,8 +12,7 @@ import { bgColor } from '../../../shared/theme';
 
 class Feed extends Component {
   render() {
-    const { auth, posts } = this.props;
-    console.log(auth);
+    const { posts } = this.props;
     return (
       <FeedContainer>
         <AddPost/>

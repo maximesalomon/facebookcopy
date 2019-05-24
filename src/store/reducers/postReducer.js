@@ -1,10 +1,4 @@
-const initState = {
-    posts: [
-        { id: 1, text: "Sunday brunch" },
-    ]
-}
-
-const postReducer = (state = initState, action) => {
+const postReducer = (state = {}, action) => {
     switch (action.type) {
         case 'ADD_POST':
             return state;

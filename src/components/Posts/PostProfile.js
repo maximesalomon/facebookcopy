@@ -1,6 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const PostProfile = (props) => {
+  const { authorFirstName, authorLastName} = props.post
+  return (
+    <PostProfileContainer>
+        <img alt="tom-brady" src="./img/tom-brady-profile-picture.png"/>
+        <PostProfileInfos>
+          <PostProfileUserName>{authorFirstName} {authorLastName}</PostProfileUserName>
+          <PostDetails>7 min</PostDetails>
+        </PostProfileInfos>
+        {/* <PostSettings src="./img/post-dots.png"/> */}
+    </PostProfileContainer>
+  );
+}
+
 const PostProfileContainer = styled.div`
     display: flex;
     background-color: white;
@@ -14,7 +28,8 @@ const PostProfileInfos = styled.div`
     margin-left: 16px;
     margin-top: 6px;
 `
-const PostProfileUserName = styled.p`
+const PostProfileUserName = styled.div`
+  display: flex;
     font-size: 20px;
     font-weight: 800;
     font-family: 'Roboto';
@@ -34,24 +49,11 @@ const PostDetails = styled.p`
       color: #C4C4C4;
     }
 `
-const PostSettings = styled.img`
-  margin-top: 14px;
-  margin-left: 410px;
-  width: 20px;
-  height: 6px;
-`
-
-const PostProfile = () => {
-  return (
-    <PostProfileContainer>
-        <img alt="tom-brady" src="./img/tom-brady-profile-picture.png"/>
-        <PostProfileInfos>
-          <PostProfileUserName>Tom Brady</PostProfileUserName>
-          <PostDetails>7 min</PostDetails>
-        </PostProfileInfos>
-        <PostSettings src="./img/post-dots.png"/>
-    </PostProfileContainer>
-  );
-}
+// const PostSettings = styled.img`
+//   right: 10px;
+//   margin-top: 14px;
+//   width: 20px;
+//   height: 6px;
+// `
 
 export default PostProfile;

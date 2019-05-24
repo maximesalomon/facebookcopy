@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { signIn } from '../../store/actions/authActions';
+import { signUp } from '../../store/actions/authActions';
 
-const SignInForm = styled.form`
+const SignUpForm = styled.form`
     padding-top: 100px;
     margin-left: 100px;
 `
 
-class SignIn extends Component {
+class SignUp extends Component {
   state = {
+    firstname: '',
+    lastname: '',
     email: '',
     password: ''
   }
@@ -20,15 +22,18 @@ class SignIn extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.signIn(this.state)
+    this.props.signUp(this.state)
   }
   render() {
+      console.log(this.state)
     return (
-        <SignInForm>
+        <SignUpForm>
+            <input id="firstname" onChange={this.handleChange}/>
+            <input id="lastname" onChange={this.handleChange}/>
             <input id="email" onChange={this.handleChange}/>
             <input id="password" onChange={this.handleChange}/>
-            <button onClick={this.handleSubmit}>Login</button>
-        </SignInForm>
+            <button onClick={this.handleSubmit}>Signup</button>
+        </SignUpForm>
     )
   }
 }
@@ -40,10 +45,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch)=> {
   return {
-    signIn: (creds) => dispatch(signIn(creds))
+    signUp: (newUser) => dispatch(signUp(newUser))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn)
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp)

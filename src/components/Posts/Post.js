@@ -14,7 +14,7 @@ const PostContainer = styled.section`
 const Post = ({post}) => {
   return (
     <PostContainer>
-        <PostProfile/>
+        <PostProfile post={post}/>
         <PostContent post={post}/>
     </PostContainer>
   );
