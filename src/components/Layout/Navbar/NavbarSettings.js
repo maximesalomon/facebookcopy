@@ -18,8 +18,8 @@ const SettingsIcon = styled.img`
 
 const NavbarSettings = (props) => {
   return (
-    <a onClick={props.signOut}><SettingsIcon src='./img/desktop-settings-icon.png'/></a>
-  );
+    <SettingsIcon onClick={props.signOut} src='./img/desktop-settings-icon.png'/>
+  )
 }
 
 const mapDispatchToProps = (dispatch) => {

@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import moment from 'moment';
 
 const PostProfile = (props) => {
-  const { authorFirstName, authorLastName} = props.post
-  console.log(props.post);
+  const { authorFirstName, authorLastName} = props.post;
   return (
     <PostProfileContainer>
         <img alt="tom-brady" src="./img/tom-brady-profile-picture.png"/>
