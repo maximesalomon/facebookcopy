@@ -10,6 +10,10 @@ import SignIn from './components/Auth/SignIn';
 import './shared/reset.css';
 
 const App = (props) => {
+  const { auth } = props;
+  if(auth === true) {
+    return <Router><Route path="/" exact component={SignIn}/></Router>
+  }
   return (
     <>
     <Router>
@@ -17,7 +21,6 @@ const App = (props) => {
         <div className="App">
           <Route path="/" component={Layout}/>
           <Route path="/" exact component={Feed}/>
-          <Route path="/signin" component={SignIn}/>
         </div>
       </ThemeProvider>
     </Router>
@@ -25,4 +28,10 @@ const App = (props) => {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth.isEmpty
+  }
+}
+
+export default connect(mapStateToProps)(App);

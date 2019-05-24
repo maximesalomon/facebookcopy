@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
 
 const PostProfileContainer = styled.div`
     display: flex;
@@ -48,7 +47,7 @@ const PostProfile = () => {
         <img alt="tom-brady" src="./img/tom-brady-profile-picture.png"/>
         <PostProfileInfos>
           <PostProfileUserName>Tom Brady</PostProfileUserName>
-          <PostDetails><Link to='/posts/1'>7 min</Link></PostDetails>
+          <PostDetails>7 min</PostDetails>
         </PostProfileInfos>
         <PostSettings src="./img/post-dots.png"/>
     </PostProfileContainer>

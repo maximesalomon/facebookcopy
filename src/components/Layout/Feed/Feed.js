@@ -13,11 +13,11 @@ import { bgColor } from '../../../shared/theme';
 class Feed extends Component {
   render() {
     const { auth, posts } = this.props;
-    const feed = auth === true ? null :<><AddPost/><PostList posts={posts}/></>;
     console.log(auth);
     return (
       <FeedContainer>
-        {feed}
+        <AddPost/>
+        <PostList posts={posts}/>
       </FeedContainer>
     );
   }
