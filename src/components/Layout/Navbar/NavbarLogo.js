@@ -4,6 +4,12 @@ import { Link } from "react-router-dom";
 
 import { mobileFacebookLogo, desktopFacebookLogo } from '../../../shared/theme';
 
+const NavbarLogo = () => {
+  return (
+    <Link to='/'><FBLogo></FBLogo></Link>
+  );
+}
+
 const FBLogo = styled.div`
   @media (max-width: 768px) {
       height: 48px;
@@ -22,11 +28,5 @@ const FBLogo = styled.div`
     border: none;
   }
 `
-
-const NavbarLogo = () => {
-  return (
-    <Link to='/'><FBLogo></FBLogo></Link>
-  );
-}
 
 export default NavbarLogo;

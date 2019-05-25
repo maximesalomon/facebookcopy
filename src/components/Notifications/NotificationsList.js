@@ -6,8 +6,7 @@ import { compose } from "redux";
 
 import Notification from "./Notification";
 
-const Notifications = props => {
-  const { notifications } = props;
+const Notifications = ({ notifications }) => {
   return (
     <>
       {notifications &&

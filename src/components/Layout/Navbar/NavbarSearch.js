@@ -3,6 +3,17 @@ import styled from 'styled-components';
 
 import { searchBarColor } from '../../../shared/theme';
 
+
+const NavbarSearch = () => {
+  return (
+    <SearchBar>
+      <SearchBarInput />
+      <SearchBarIcon src='./img/mobile-search-loop-icon.png'/>
+      <MessengerIcon src='./img/mobile-messenger-icon.png'/>
+    </SearchBar>
+  );
+}
+
 const SearchBar = styled.div`
   @media (max-width: 768px) {
     position: absolute;
@@ -51,16 +62,5 @@ const SearchBarInput = styled.input`
     width: 368px;
   }
 `
-
-
-const NavbarSearch = () => {
-  return (
-    <SearchBar>
-      <SearchBarInput />
-      <SearchBarIcon src='./img/mobile-search-loop-icon.png'/>
-      <MessengerIcon src='./img/mobile-messenger-icon.png'/>
-    </SearchBar>
-  );
-}
 
 export default NavbarSearch;

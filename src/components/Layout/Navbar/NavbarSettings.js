@@ -1,7 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
-import { connect } from 'react-redux';
-import { signOut } from '../../../store/actions/authActions'
+import React from "react";
+import styled from "styled-components";
+import { connect } from "react-redux";
+
+import { signOut } from "../../../store/actions/authActions";
+
+const NavbarSettings = ({ signOut }) => {
+  return (
+    <SettingsIcon onClick={signOut} src="./img/desktop-settings-icon.png" />
+  );
+};
 
 const SettingsIcon = styled.img`
   @media (max-width: 768px) {
@@ -14,18 +21,15 @@ const SettingsIcon = styled.img`
     right: 16px;
     top: 8px;
   }
-`
+`;
 
-const NavbarSettings = (props) => {
-  return (
-    <SettingsIcon onClick={props.signOut} src='./img/desktop-settings-icon.png'/>
-  )
-}
-
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     signOut: () => dispatch(signOut())
-  }
-}
+  };
+};
 
-export default connect(null, mapDispatchToProps)(NavbarSettings);
+export default connect(
+  null,
+  mapDispatchToProps
+)(NavbarSettings);

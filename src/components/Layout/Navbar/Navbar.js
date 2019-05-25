@@ -7,6 +7,17 @@ import NavbarIcons from './NavbarIcons';
 import NavbarSettings from './NavbarSettings';
 import { navbarBackgroundColor, dropShadow, textColor } from '../../../shared/theme';
 
+const Navbar = () => {
+  return (
+    <NavbarContainer>
+      <NavbarLogo/>
+      <NavbarSearch/>
+      <NavbarIcons/>
+	    <NavbarSettings/>
+    </NavbarContainer>
+  );
+}
+
 const NavbarContainer = styled.div`
   @media (max-width: 768px) {
     position: fixed;
@@ -27,16 +38,5 @@ const NavbarContainer = styled.div`
     color: ${textColor};
   }
 `
-
-const Navbar = () => {
-  return (
-    <NavbarContainer>
-      <NavbarLogo/>
-      <NavbarSearch/>
-      <NavbarIcons/>
-	    <NavbarSettings/>
-    </NavbarContainer>
-  );
-}
 
 export default Navbar;

@@ -1,6 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const NavbarIcons = () => {
+  return (
+    <IconsContainer>
+      <NavbarHomeIcon src='./img/desktop-home-icon.png'/>
+      <NavbarWatchIcon src='./img/desktop-watch-icon.png'/>
+      <NavbarFriendsIcon src='./img/desktop-friends-icon.png'/>
+      <NavbarProfilePicture src='./img/tom-brady-profile-picture.png'/>
+      <NavbarMarketplaceIcon src='./img/desktop-marketplace-icon.png'/>
+      <NavbarNotificationsIcon src='./img/desktop-notifications-icon.png'/>
+      <NavbarMessengerIcon src='./img/desktop-messenger-icon.png'/>
+      <MobileBurgerMenu src='./img/mobile-burger-menu.png'/>
+    </IconsContainer>
+  );
+}
+
 const IconsContainer = styled.div`
   position: absolute;
   display: flex;
@@ -105,20 +120,5 @@ const MobileBurgerMenu = styled.img`
     display:none;
   }
 `
-
-const NavbarIcons = () => {
-  return (
-    <IconsContainer>
-      <NavbarHomeIcon src='./img/desktop-home-icon.png'/>
-      <NavbarWatchIcon src='./img/desktop-watch-icon.png'/>
-      <NavbarFriendsIcon src='./img/desktop-friends-icon.png'/>
-      <NavbarProfilePicture src='./img/tom-brady-profile-picture.png'/>
-      <NavbarMarketplaceIcon src='./img/desktop-marketplace-icon.png'/>
-      <NavbarNotificationsIcon src='./img/desktop-notifications-icon.png'/>
-      <NavbarMessengerIcon src='./img/desktop-messenger-icon.png'/>
-      <MobileBurgerMenu src='./img/mobile-burger-menu.png'/>
-    </IconsContainer>
-  );
-}
 
 export default NavbarIcons;
