@@ -1,48 +1,78 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import { connect } from 'react-redux';
-import { signIn } from '../../store/actions/authActions';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { connect } from "react-redux";
+import { signIn } from "../../store/actions/authActions";
 
 const SignInForm = styled.form`
-    padding-top: 100px;
-    margin-left: 100px;
-`
+  padding-top: 100px;
+  margin-left: 100px;
+`;
 
-class SignIn extends Component {
-  state = {
+const SignIn = props => {
+  const [user, setUser] = useState({
     email: '',
     password: ''
-  }
-  handleChange = (e) => {
-    this.setState({
-      [e.target.id]: e.target.value
-    })
-  }
-  handleSubmit = (e) => {
+  });
+
+  const handleEmail = e => {
+    setUser({ ...user, email: e.target.value });
+  };
+
+  const handlePassword = e => {
+    setUser({ ...user, password: e.target.value });
+  };
+
+  const handleSubmit = e => {
     e.preventDefault();
-    this.props.signIn(this.state)
-  }
-  render() {
-    return (
-        <SignInForm>
-            <input id="email" onChange={this.handleChange}/>
-            <input id="password" onChange={this.handleChange}/>
-            <button onClick={this.handleSubmit}>Login</button>
-        </SignInForm>
-    )
-  }
-}
+    props.signIn(user);
+  };
+  return (
+    <SignInForm>
+      <input id="email" onChange={handleEmail} />
+      <input id="password" onChange={handlePassword} />
+      <button onClick={handleSubmit}>Login</button>
+    </SignInForm>
+  );
+};
 
-const mapStateToProps = (state) => {
+// class SignIn extends Component {
+//   state = {
+//     email: '',
+//     password: ''
+//   }
+//   handleChange = (e) => {
+//     this.setState({
+//       [e.target.id]: e.target.value
+//     })
+//   }
+//   handleSubmit = (e) => {
+//     e.preventDefault();
+//     this.props.signIn(this.state)
+//   }
+//   render() {
+//     return (
+//         <SignInForm>
+//             <input id="email" onChange={this.handleChange}/>
+//             <input id="password" onChange={this.handleChange}/>
+//             <button onClick={this.handleSubmit}>Login</button>
+//         </SignInForm>
+//     )
+//   }
+// }
+
+const mapStateToProps = state => {
   return {
-    authError: state.auth.authError,
-  }
-}
+    authError: state.auth.authError
+  };
+};
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    signIn: (creds) => dispatch(signIn(creds))
-  }
-}
+    signIn: creds => dispatch(signIn(creds))
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignIn);

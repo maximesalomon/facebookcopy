@@ -25,7 +25,6 @@ class SignUp extends Component {
     this.props.signUp(this.state)
   }
   render() {
-      console.log(this.state)
     return (
         <SignUpForm>
             <input id="firstname" onChange={this.handleChange}/>

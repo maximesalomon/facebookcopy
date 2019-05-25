@@ -2,11 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import moment from 'moment';
 
+const tom = "https://firebasestorage.googleapis.com/v0/b/facebook-a5382.appspot.com/o/tom-brady-profile-picture.png?alt=media&token=f27b7bf1-5ac5-482d-98b8-799d7ea72522"
+
 const PostProfile = (props) => {
   const { authorFirstName, authorLastName} = props.post;
   return (
     <PostProfileContainer>
-        <img alt="tom-brady" src="./img/tom-brady-profile-picture.png"/>
+        <img alt="tom-brady" src={tom}/>
         <PostProfileInfos>
           <PostProfileUserName>{authorFirstName} {authorLastName}</PostProfileUserName>
           <PostDetails>{ moment(props.post.createdAt.toDate()).fromNow()}</PostDetails>
