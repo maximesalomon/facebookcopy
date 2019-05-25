@@ -35,31 +35,6 @@ const SignIn = props => {
   );
 };
 
-// class SignIn extends Component {
-//   state = {
-//     email: '',
-//     password: ''
-//   }
-//   handleChange = (e) => {
-//     this.setState({
-//       [e.target.id]: e.target.value
-//     })
-//   }
-//   handleSubmit = (e) => {
-//     e.preventDefault();
-//     this.props.signIn(this.state)
-//   }
-//   render() {
-//     return (
-//         <SignInForm>
-//             <input id="email" onChange={this.handleChange}/>
-//             <input id="password" onChange={this.handleChange}/>
-//             <button onClick={this.handleSubmit}>Login</button>
-//         </SignInForm>
-//     )
-//   }
-// }
-
 const mapStateToProps = state => {
   return {
     authError: state.auth.authError

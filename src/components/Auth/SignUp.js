@@ -1,52 +1,67 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import { connect } from 'react-redux';
-import { signUp } from '../../store/actions/authActions';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { connect } from "react-redux";
+import { signUp } from "../../store/actions/authActions";
 
 const SignUpForm = styled.form`
-    padding-top: 100px;
-    margin-left: 100px;
-`
+  padding-top: 100px;
+  margin-left: 100px;
+`;
 
-class SignUp extends Component {
-  state = {
-    firstname: '',
-    lastname: '',
-    email: '',
-    password: ''
-  }
-  handleChange = (e) => {
-    this.setState({
-      [e.target.id]: e.target.value
-    })
-  }
-  handleSubmit = (e) => {
+const SignUp = props => {
+  const [user, setUser] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: ""
+  });
+
+  console.log(user);
+
+  const handleFirstName = e => {
+    setUser({ ...user, firstname: e.target.value });
+  };
+
+  const handleLastName = e => {
+    setUser({ ...user, lastname: e.target.value });
+  };
+
+  const handleEmail = e => {
+    setUser({ ...user, email: e.target.value });
+  };
+
+  const handlePassword = e => {
+    setUser({ ...user, password: e.target.value });
+  };
+
+  const handleSubmit = e => {
     e.preventDefault();
-    this.props.signUp(this.state)
-  }
-  render() {
-    return (
-        <SignUpForm>
-            <input id="firstname" onChange={this.handleChange}/>
-            <input id="lastname" onChange={this.handleChange}/>
-            <input id="email" onChange={this.handleChange}/>
-            <input id="password" onChange={this.handleChange}/>
-            <button onClick={this.handleSubmit}>Signup</button>
-        </SignUpForm>
-    )
-  }
-}
+    props.signUp(user);
+  };
+  return (
+    <SignUpForm>
+      <input id="firstname" onChange={handleFirstName} />
+      <input id="lastname" onChange={handleLastName} />
+      <input id="email" onChange={handleEmail} />
+      <input id="password" onChange={handlePassword} />
+      <button onClick={handleSubmit}>Signup</button>
+    </SignUpForm>
+  );
+};
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    authError: state.auth.authError,
-  }
-}
+    authError: state.auth.authError
+  };
+};
 
-const mapDispatchToProps = (dispatch)=> {
+const mapDispatchToProps = dispatch => {
   return {
-    signUp: (newUser) => dispatch(signUp(newUser))
-  }
-}
+    signUp: newUser => dispatch(signUp(newUser))
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignUp);
