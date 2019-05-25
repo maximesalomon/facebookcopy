@@ -7,18 +7,18 @@ const PostText = styled.p`
     font-family: 'Roboto';
     color: #3D4048;
     font-size: 18px;
+    padding-bottom: 24px;
 `
 
-const PostAsset = styled.img`
-  margin-top: 16px;
-  width: 100%;
-`
+// const PostAsset = styled.img`
+//   width: 100%;
+// `
 
 const PostContent = ({post}) => {
   return (
     <>
         <PostText>{post.text}</PostText>
-        <PostAsset src='./img/brunch.png'/>
+        {/* <PostAsset src='./img/brunch.png'/> */}
     </>
   );
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import NotificationsList from '../../Notifications/NotificationsList'
 import { sidebarBgColor } from '../../../shared/theme';
+import NotificationsList from '../../Notifications/NotificationsList';
 
 const SidebarLeft = styled.div`
     @media (max-width: 768px) {
@@ -17,7 +17,6 @@ const SidebarLeft = styled.div`
         background-color: ${sidebarBgColor};
      }
 `
-
 const SidebarLeftContainer = () => {
   return (
     <SidebarLeft>

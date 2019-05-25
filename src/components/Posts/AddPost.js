@@ -23,19 +23,24 @@ class AddPost extends Component {
         if (e.keyCode === 13) {
             e.preventDefault();
             this.props.createPost(this.state)
+            resetName()
         }
     }
+
+    const resetName = () => {this.setState({text : ''})};
+
         return (
             <AddPostContainer>
                 <AddPostProfilePicture alt="tom-brady" src='./img/tom-brady-profile-picture.png'/>
                 <form onKeyDown={handleSubmit}>
-                    <AddPostInput placeholder='Add a post' value={this.text} onChange={e => handleChange(e)}/>
+                    <AddPostInput placeholder='Add a post' onfocus='' value={this.text} onChange={e => handleChange(e)}/>
                 </form>
                 <AddPostAsset alt='Button to add asset' src='./img/desktop-upload-asset.png'/>
             </AddPostContainer>
         );
     }
 }
+
 
 const AddPostContainer = styled.div`
     margin: 32px auto;
