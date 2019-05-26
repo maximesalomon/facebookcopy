@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import moment from "moment";
+import PropTypes from 'prop-types';
 
 const tom =
   "https://firebasestorage.googleapis.com/v0/b/facebook-a5382.appspot.com/o/tom-brady-profile-picture.png?alt=media&token=f27b7bf1-5ac5-482d-98b8-799d7ea72522";
@@ -21,6 +22,11 @@ const PostProfile = props => {
       {/* <PostSettings src="./img/post-dots.png"/> */}
     </PostProfileContainer>
   );
+};
+
+PostProfile.propTypes = {
+  authorFirstName: PropTypes.string,
+  authorLastName: PropTypes.string,
 };
 
 const PostProfileContainer = styled.div`

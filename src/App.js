@@ -14,8 +14,10 @@ const App = ({ auth }) => {
   if (auth === true) {
     return (
       <Router>
-        <Route exact path="/" component={SignIn} />
-        <Route exact path="/" component={SignUp} />
+        <Switch>
+          <Route exact path="/" component={SignIn} />
+          <Route exact path="/" component={SignUp} />
+        </Switch>
       </Router>
     );
   }
