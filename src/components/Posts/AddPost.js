@@ -17,7 +17,7 @@ const AddPost = (props) => {
   const handleSubmit = e => {
     if (e.keyCode === 13) {
       e.preventDefault();
-      this.props.createPost(post);
+      props.createPost(post);
       resetName();
     }
   };
