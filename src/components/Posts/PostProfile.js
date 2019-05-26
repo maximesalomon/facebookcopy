@@ -2,12 +2,21 @@ import React from "react";
 import styled from "styled-components";
 import moment from "moment";
 import PropTypes from 'prop-types';
+import { connect } from "react-redux";
+
+import { deletePost } from "../../store/actions/postActions";
+
 
 const tom =
   "https://firebasestorage.googleapis.com/v0/b/facebook-a5382.appspot.com/o/tom-brady-profile-picture.png?alt=media&token=f27b7bf1-5ac5-482d-98b8-799d7ea72522";
 
 const PostProfile = props => {
-  const { authorFirstName, authorLastName } = props.post;
+  const { authorFirstName, authorLastName, id } = props.post;
+
+  const deletePost = (postId) => {
+    props.deletePost(postId);
+  }
+
   return (
     <PostProfileContainer>
       <img alt="tom-brady" src={tom} />
@@ -19,7 +28,7 @@ const PostProfile = props => {
           {moment(props.post.createdAt.toDate()).fromNow()}
         </PostDetails>
       </PostProfileInfos>
-      {/* <PostSettings src="./img/post-dots.png"/> */}
+      <PostSettings onClick={() => deletePost(id)} src="./img/post-dots.png"/>
     </PostProfileContainer>
   );
 };
@@ -30,6 +39,7 @@ PostProfile.propTypes = {
 };
 
 const PostProfileContainer = styled.div`
+  position: relative;
   display: flex;
   background-color: white;
   border-radius: 8px 8px 0px 0px;
@@ -63,11 +73,22 @@ const PostDetails = styled.p`
     color: #c4c4c4;
   }
 `;
-// const PostSettings = styled.img`
-//   right: 10px;
-//   margin-top: 14px;
-//   width: 20px;
-//   height: 6px;
-// `
 
-export default PostProfile;
+const PostSettings = styled.img`
+  position: absolute;
+  right: 24px;
+  margin-top: 14px;
+  width: 20px;
+  height: 6px;
+`;
+
+const mapDispatchToProps = dispatch => {
+  return {
+    deletePost: postId => dispatch(deletePost(postId))
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(PostProfile);

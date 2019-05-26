@@ -14,14 +14,32 @@ export const createPost = post => {
       })
       .then(() =>
         dispatch({
-          type: "ADD_POST",
-          post
+          type: "ADD_POST", post
         })
       )
       .catch(err =>
         dispatch({
-          type: "ADD_POST_ERROR",
-          err
+          type: "ADD_POST_ERROR", err
+        })
+      );
+  };
+};
+
+export const deletePost = postId => {
+  return (dispatch, getState, { getFirestore }) => {
+    const firestore = getFirestore();
+    firestore
+      .collection("posts")
+      .doc(postId)
+      .delete()
+      .then(() =>
+        dispatch({
+          type: "DELETE_POST", postId
+        })
+      )
+      .catch(err =>
+        dispatch({
+          type: "DELETE_POST_ERROR", err
         })
       );
   };
