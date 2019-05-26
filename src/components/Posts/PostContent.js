@@ -12,8 +12,6 @@ const PostContent = ({ editPost, post}) => {
     editing: false,
   })
 
-  console.log(content);
-
   const handleChange = (e) => {
     setContent({ ...content, text: e.target.value })
   }

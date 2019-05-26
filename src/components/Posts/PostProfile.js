@@ -6,12 +6,11 @@ import { connect } from "react-redux";
 
 import { deletePost } from "../../store/actions/postActions";
 
-
 const tom =
   "https://firebasestorage.googleapis.com/v0/b/facebook-a5382.appspot.com/o/tom-brady-profile-picture.png?alt=media&token=f27b7bf1-5ac5-482d-98b8-799d7ea72522";
 
 const PostProfile = props => {
-  const { authorFirstName, authorLastName, id } = props.post;
+  const { authorId, authorFirstName, authorLastName, id } = props.post;
 
   const deletePost = (postId) => {
     props.deletePost(postId);
@@ -28,7 +27,11 @@ const PostProfile = props => {
           {moment(props.post.createdAt.toDate()).fromNow()}
         </PostDetails>
       </PostProfileInfos>
-      <PostSettings onClick={() => deletePost(id)} src="./img/post-dots.png"/>
+      {
+        (authorId === props.uid)
+        ? <PostSettings onClick={() => deletePost(id)} src="./img/post-dots.png"/>
+        : <PostSettings src="./img/post-dots.png"/>
+      }
     </PostProfileContainer>
   );
 };
@@ -82,6 +85,12 @@ const PostSettings = styled.img`
   height: 6px;
 `;
 
+const mapStateToProps = state => {
+  return {
+    uid: state.firebase.auth.uid
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     deletePost: postId => dispatch(deletePost(postId))
@@ -89,6 +98,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(PostProfile);

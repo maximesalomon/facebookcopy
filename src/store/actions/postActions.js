@@ -9,7 +9,7 @@ export const createPost = post => {
         ...post,
         authorFirstName: profile.firstname,
         authorLastName: profile.lastname,
-        authordId: authorId,
+        authorId: authorId,
         createdAt: new Date()
       })
       .then(() =>
