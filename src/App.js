@@ -14,10 +14,8 @@ const App = ({ auth }) => {
   if (auth === true) {
     return (
       <Router>
-        <Switch>
           <Route exact path="/" component={SignIn} />
           <Route exact path="/" component={SignUp} />
-        </Switch>
       </Router>
     );
   }
@@ -38,7 +36,6 @@ const App = ({ auth }) => {
 };
 
 const mapStateToProps = state => {
-  // console.log(state)
   return {
     auth: state.firebase.auth.isEmpty
   };

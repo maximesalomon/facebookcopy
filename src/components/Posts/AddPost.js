@@ -1,56 +1,53 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 
 import { createPost } from "../../store/actions/postActions";
 
-class AddPost extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: ""
-    };
-  }
-  render() {
-    const handleChange = e => {
-      this.setState({
-        text: e.target.value
-      });
-    };
+const AddPost = (props) => {
 
-    const handleSubmit = e => {
-      if (e.keyCode === 13) {
-        e.preventDefault();
-        this.props.createPost(this.state);
-        resetName();
-      }
-    };
+  const [post, setPost] = useState({
+    text: '',
+  })
 
-    const resetName = () => {
-      this.setState({ text: "" });
-    };
+  const handleChange = e => {
+    setPost({ ...post, text: e.target.value });
+  };
 
-    return (
-      <AddPostContainer>
-        <AddPostProfilePicture
-          alt="tom-brady"
-          src="./img/tom-brady-profile-picture.png"
+  const handleSubmit = e => {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      props.createPost(post);
+      resetName();
+    }
+  };
+
+
+
+  const resetName = () => {
+    setPost({ ...post, text: '' });
+  };
+
+  return (
+    <AddPostContainer>
+      <AddPostProfilePicture
+        alt="tom-brady"
+        src="./img/tom-brady-profile-picture.png"
+      />
+      <form onKeyDown={handleSubmit}>
+        <AddPostInput
+          placeholder="Add a post"
+          onfocus=""
+          value={props.text}
+          onChange={e => handleChange(e)}
         />
-        <form onKeyDown={handleSubmit}>
-          <AddPostInput
-            placeholder="Add a post"
-            onfocus=""
-            value={this.text}
-            onChange={e => handleChange(e)}
-          />
-        </form>
-        <AddPostAsset
-          alt="Button to add asset"
-          src="./img/desktop-upload-asset.png"
-        />
-      </AddPostContainer>
-    );
-  }
+      </form>
+      <AddPostAsset
+        alt="Button to add asset"
+        src="./img/desktop-upload-asset.png"
+      />
+    </AddPostContainer>
+  );
 }
 
 const AddPostContainer = styled.div`
