@@ -4,6 +4,10 @@ const postReducer = (state = {}, action) => {
       return state;
     case "ADD_POST_ERROR":
       return state;
+    case "EDIT_POST":
+      return state;
+    case "EDIT_POST_ERROR":
+      return state;
     case "DELETE_POST":
       return state;
     case "DELETE_POST_ERROR":

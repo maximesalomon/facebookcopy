@@ -38,6 +38,7 @@ const SignUp = props => {
     e.preventDefault();
     props.signUp(user);
   };
+  
   return (
     <SignUpForm>
       <input id="firstname" onChange={handleFirstName} />

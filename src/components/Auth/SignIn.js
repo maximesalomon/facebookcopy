@@ -26,6 +26,7 @@ const SignIn = props => {
     e.preventDefault();
     props.signIn(user);
   };
+  
   return (
     <SignInForm>
       <input id="email" onChange={handleEmail} />

@@ -25,6 +25,28 @@ export const createPost = post => {
   };
 };
 
+export const editPost = post => {
+  return (dispatch, getState, { getFirestore }) => {
+    const firestore = getFirestore();
+    firestore
+      .collection("posts")
+      .doc(post.id)
+      .update({
+        text: post.text
+      })
+      .then(() =>
+        dispatch({
+          type: "EDIT_POST", post
+        })
+      )
+      .catch(err =>
+        dispatch({
+          type: "EDIT_POST_ERROR", err
+        })
+      );
+  };
+};
+
 export const deletePost = postId => {
   return (dispatch, getState, { getFirestore }) => {
     const firestore = getFirestore();
