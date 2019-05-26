@@ -4,13 +4,14 @@ import { connect } from "react-redux";
 
 import { editPost } from "../../store/actions/postActions";
 
-const PostContent = ({ editPost, post}) => {
-  const {text, id} = post;
+const PostContent = props => {
+  const { authorId, text, id } = props.post;
   const [content, setContent] = useState({
     id: id,
     text: text,
     editing: false,
   })
+
 
   const handleChange = (e) => {
     setContent({ ...content, text: e.target.value })
@@ -28,11 +29,8 @@ const PostContent = ({ editPost, post}) => {
     <>
     {
       content.editing === false
-      ? <PostText onClick={() => setContent({ ...content, editing: true })}>{text}</PostText>
-      : <Edit>
-          <EditInput onKeyDown={handleSubmit} onChange={handleChange} value={content.text}/>
-          <EditClose onClick={() => setContent({ ...content, editing: false })}>X</EditClose>
-        </Edit>
+      ? <PostText onClick={() => authorId === props.uid ? setContent({ ...content, editing: true }) : setContent({ ...content, editing: false })}>{text}</PostText>
+      : <Edit><EditInput onKeyDown={handleSubmit} onChange={handleChange} value={content.text}/><EditClose onClick={() => setContent({ ...content, editing: false })}>X</EditClose></Edit>
     }
       {/* <PostText onClick={() => editPost(content)}>{text}</PostText> */}
       {/* <PostAsset src='./img/brunch.png'/> */}
@@ -71,6 +69,13 @@ const EditClose = styled.div`
 //   width: 100%;
 // `
 
+const mapStateToProps = state => {
+  console.log(state)
+  return {
+    uid: state.firebase.auth.uid
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     editPost: post => dispatch(editPost(post))
@@ -78,6 +83,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(PostContent);
