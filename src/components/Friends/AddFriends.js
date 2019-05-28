@@ -1,20 +1,43 @@
 import React from "react";
-import styled from "styled-components";
 
-const AddFriendsStyle = styled.p`
-  padding: 16px;
-  margin: 10px;
-  border: 1px solid lightgray;
-  border-radius: 8px;
-  font-family: "Lato";
-`;
+import { connect } from "react-redux";
+import { firestoreConnect } from "react-redux-firebase";
+import { compose } from "redux";
 
-const AddFriends = ({ user }) => {
+import PotentialFriend from './PotentialFriend';
+
+import { addFriend } from "../../store/actions/friendActions";
+
+const AddFriends = ({ addFriend, users }) => {
+  const handleClick = user => {
+      addFriend(user);
+      console.log(user)
+  }
   return (
-    <AddFriendsStyle>
-      {user.firstname} {user.lastname}
-    </AddFriendsStyle>
+    <>
+      {users &&
+        users.map(user => {
+          return <PotentialFriend key={user.id} user={user} handleClick={handleClick} />;
+        })}
+    </>
   );
+}
+
+const mapStateToProps = state => {
+  return {
+    users: state.firestore.ordered.users
+  };
 };
 
-export default AddFriends;
+const mapDispatchToProps = dispatch => {
+  return {
+    addFriend: friend => dispatch(addFriend(friend))
+  };
+};
+
+export default compose(
+connect(mapStateToProps, mapDispatchToProps),
+  firestoreConnect([
+    { collection: "users" }
+  ])
+)(AddFriends);

@@ -12,8 +12,6 @@ const PostContent = props => {
     editing: false,
   });
 
-  console.log(content)
-
   const handleChange = (e) => {
     console.log(e.target.value)
     setContent({ ...content, text: e.target.value })

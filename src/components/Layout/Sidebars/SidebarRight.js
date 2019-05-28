@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { sidebarBgColor } from "../../../shared/theme";
-import AddFriends from "../../Friends/PotentialFriends";
+import AddFriends from "../../Friends/AddFriends";
 
 const SidebarRightContainer = () => {
   return (
