@@ -3,6 +3,7 @@ import styled from "styled-components";
 import moment from "moment";
 import PropTypes from 'prop-types';
 import { connect } from "react-redux";
+import { Link } from 'react-router-dom';
 
 import { deletePost } from "../../store/actions/postActions";
 
@@ -21,7 +22,7 @@ const PostProfile = props => {
       <img alt="tom-brady" src={tom} />
       <PostProfileInfos>
         <PostProfileUserName>
-          {authorFirstName} {authorLastName}
+          <Link to={`/users/${authorId}`}>{authorFirstName} {authorLastName}</Link>
         </PostProfileUserName>
         <PostDetails>
           {moment(props.post.createdAt.toDate()).fromNow()}

@@ -70,7 +70,6 @@ const EditClose = styled.div`
 // `
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
     uid: state.firebase.auth.uid
   };
