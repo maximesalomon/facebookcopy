@@ -14,9 +14,11 @@ const UserContainer = styled.section`
 const User = ({ user }) => {
     console.log(user);
     if(user) {
-        return <UserContainer>
-                    <h1>{user.firstname} {user.lastname}</h1>
-                </UserContainer>
+        return (
+            <UserContainer>
+                <h1>{user.firstname} {user.lastname}</h1>
+            </UserContainer>
+        )
     } return (
         <p></p>
     );

@@ -2,9 +2,14 @@ import React from "react";
 import styled from "styled-components";
 
 import { sidebarBgColor } from "../../../shared/theme";
+import AddFriends from "../../Friends/PotentialFriends";
 
 const SidebarRightContainer = () => {
-  return <SidebarRight />;
+  return (
+    <SidebarRight>
+      <AddFriends />
+    </SidebarRight>
+  )
 };
 
 const SidebarRight = styled.div`
