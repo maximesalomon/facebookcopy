@@ -10,26 +10,29 @@ const PostContent = props => {
     id: id,
     text: text,
     editing: false,
-  })
+  });
 
+  console.log(content)
 
   const handleChange = (e) => {
+    console.log(e.target.value)
     setContent({ ...content, text: e.target.value })
   }
 
   const handleSubmit = e => {
-    if (e.keyCode === 13) {
-      e.preventDefault();
-      editPost(content);
-      setContent({ ...content, editing: false});
-    }
+      if (e.key === 'Enter') {
+        console.log(content)
+        e.preventDefault();
+        props.editPost(content);
+        setContent({ ...content, editing: false});
+      }
   };
 
   return (
     <>
     {
       content.editing === false
-      ? <PostText onClick={() => authorId === props.uid ? setContent({ ...content, editing: true }) : setContent({ ...content, editing: false })}>{text}</PostText>
+      ? <PostText onClick={() => authorId === props.uid ? setContent({ ...content, editing: true }) : null}>{text}</PostText>
       : <Edit><EditInput onKeyDown={handleSubmit} onChange={handleChange} value={content.text}/><EditClose onClick={() => setContent({ ...content, editing: false })}>X</EditClose></Edit>
     }
       {/* <PostText onClick={() => editPost(content)}>{text}</PostText> */}
