@@ -8,16 +8,31 @@ import PotentialFriend from './PotentialFriend';
 
 import { addFriend } from "../../store/actions/friendActions";
 
-const AddFriends = ({ addFriend, users }) => {
+const AddFriends = ({ addFriend, users, id }) => {
+  // const friends = []
+  // console.log(users)
+  // console.log(id)
+  console.log(users)
+
   const handleClick = user => {
-      addFriend(user);
-      console.log(user)
+      // addFriend(user);
+      console.log(user.friends)
   }
+  const friends = []
+
+  users && users.map(user => {
+    if(user.id !== id) {
+      return friends.push(user)
+    }
+  })
+
+  console.log(friends)
+
   return (
     <>
-      {users &&
-        users.map(user => {
-          return <PotentialFriend key={user.id} user={user} handleClick={handleClick} />;
+      {friends &&
+        friends.map(friend => {
+          return <PotentialFriend key={friend.id} friend={friend} handleClick={handleClick} />
         })}
     </>
   );
@@ -25,7 +40,8 @@ const AddFriends = ({ addFriend, users }) => {
 
 const mapStateToProps = state => {
   return {
-    users: state.firestore.ordered.users
+    users: state.firestore.ordered.users,
+    id: state.firebase.auth.uid
   };
 };
 

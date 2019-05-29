@@ -1,4 +1,4 @@
-export const addFriend = friend => {
+export const addFriend = friends => {
     return (dispatch, getState, { getFirestore }) => {
         const userId = getState().firebase.auth.uid;
         const firestore = getFirestore();
@@ -6,11 +6,11 @@ export const addFriend = friend => {
         .collection("users")
         .doc(userId)
         .update({
-          friends: friend.id
+          friends: friends
         })
         .then(() =>
           dispatch({
-            type: "ADD_FRIEND", friend
+            type: "ADD_FRIEND", friends
           })
         )
         .catch(err =>
