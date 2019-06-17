@@ -4,23 +4,33 @@ import { connect } from "react-redux";
 
 import { deleteNotification } from "../../store/actions/notificationActions";
 
-const Notification = (props) => {
+const Notification = props => {
   const { id, user, content } = props.notif;
-  const deleteNotif = (notifId) => {
-    console.log(notifId);
+
+  const deleteNotifNow = notifId => {
     props.deleteNotification(notifId);
-  }
+  };
+
+  setTimeout(() => {
+    props.deleteNotification(id);
+  }, 30000);
+
   return (
     <NotificationStyle>
-      <p>{user} {content}</p>
-      <DeleteNotification onClick={() => deleteNotif(id)}>X</DeleteNotification>
+      <p>
+        {user} {content}
+      </p>
+      <DeleteNotification onClick={() => deleteNotifNow(id)}>
+        X
+      </DeleteNotification>
     </NotificationStyle>
   );
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    deleteNotification: notificationId => dispatch(deleteNotification(notificationId))
+    deleteNotification: notificationId =>
+      dispatch(deleteNotification(notificationId))
   };
 };
 
