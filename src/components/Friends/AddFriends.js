@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
@@ -9,39 +9,61 @@ import PotentialFriend from './PotentialFriend';
 import { addFriend } from "../../store/actions/friendActions";
 
 const AddFriends = ({ addFriend, users, id }) => {
-  // const friends = []
-  // console.log(users)
-  // console.log(id)
-  console.log(users)
+  const [addToFriends, setAddToFriends] = useState([])
+
 
   const handleClick = user => {
-      // addFriend(user);
-      console.log(user.friends)
+      setAddToFriends([...addToFriends, user.id])
   }
-  const friends = []
+
+  // await users && users.forEach(user => {
+  //   if(id === user.id) {
+  //     const friends = user.friends;
+  //     // return setAddToFriends([friends])
+  //     return setAddToFriends([user.friends])
+  //   } return null
+  // })
+
+  // users && users.map(user => {
+  //   if(id === user.id) {
+  //     const friends = user.friends
+  //     console.log(friends)
+  //     return setAddToFriends(friends)
+  //   } else return null;
+  // })
+
+  console.log(addToFriends)
+
+  // users && users.friends && users.map(user => {
+  //   if(users.id === id) {
+  //     return setAddToFriends(users.friends)
+  //   } return null
+  // })
+
+  const potentialFriends = []
 
   users && users.map(user => {
     if(user.id !== id) {
-      return friends.push(user)
+      return potentialFriends.push(user)
     }
   })
 
-  console.log(friends)
-
   return (
     <>
-      {friends &&
-        friends.map(friend => {
-          return <PotentialFriend key={friend.id} friend={friend} handleClick={handleClick} />
+      {potentialFriends &&
+        potentialFriends.map(potentialFriend => {
+          return <PotentialFriend key={potentialFriend.id} potentialFriend={potentialFriend} handleClick={handleClick} />
         })}
+      <button>Add Friend</button>
     </>
   );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
+  console.log(state)
   return {
     users: state.firestore.ordered.users,
-    id: state.firebase.auth.uid
+    id: state.firebase.auth.uid,
   };
 };
 
@@ -57,3 +79,17 @@ connect(mapStateToProps, mapDispatchToProps),
     { collection: "users" }
   ])
 )(AddFriends);
+
+// const mapStateToProps = (state, ownProps) => {
+//   const userId = ownProps.match.params.id;
+//   const users = state.firestore.data.users;
+//   const user = users ? users[userId] : null;
+//   return { user: user };
+// }
+
+// export default compose(
+//   connect(mapStateToProps),
+//   firestoreConnect([
+//       { collection: 'users' }
+//   ])
+// )(User)

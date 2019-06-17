@@ -12,18 +12,20 @@ const AddPost = (props) => {
 
   const handleChange = e => {
     setPost({ ...post, text: e.target.value });
+    console.log(post.text)
   };
 
   const handleSubmit = e => {
     if (e.keyCode === 13) {
       e.preventDefault();
-      props.createPost(post);
-      resetName();
+      props.createPost(post)
     }
   };
 
   const resetName = () => {
-    setPost({ ...post, text: null });
+    setPost({ ...post, text: 'ghj' });
+    alert(post.text)
+    
   };
 
   return (

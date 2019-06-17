@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { reduxFirestore, getFirestore } from 'redux-firestore';
 import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
+import { BrowserRouter as Router } from "react-router-dom";
 
 import rootReducer from './store/reducers/rootReducer';
 import App from './App';
@@ -28,7 +29,11 @@ const store = createStore(rootReducer,
 
 store.firebaseAuthIsReady.then(() => {
     ReactDOM.render(
-        <Provider store={store}><App /></Provider>,
+        <Provider store={store}>
+            <Router>
+                <App />
+            </Router>
+        </Provider>,
         document.getElementById('root')
     );
 })

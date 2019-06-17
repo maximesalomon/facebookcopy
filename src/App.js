@@ -1,28 +1,21 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Layout from "./components/Layout/Layout";
 import Feed from "./components/Layout/Feed/Feed";
-import SignIn from "./components/Auth/SignIn";
-import SignUp from "./components/Auth/SignUp";
+import HomeAuth from "./components/Auth/HomeAuth";
 import User from "./components/Users/User";
 
 import "./shared/reset.css";
 
 const App = ({ auth }) => {
   if (auth === true) {
-    return (
-      <Router>
-          <Route exact path="/" component={SignIn} />
-          <Route exact path="/" component={SignUp} />
-      </Router>
-    );
+    return <Route exact path="/" component={HomeAuth} />
   }
   return (
     <>
-      <Router>
         <Switch>
           <ThemeProvider theme={{ mode: "light" }}>
             <div className="App">
@@ -32,7 +25,6 @@ const App = ({ auth }) => {
             </div>
           </ThemeProvider>
         </Switch>
-      </Router>
     </>
   );
 };

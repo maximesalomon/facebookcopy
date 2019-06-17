@@ -9,10 +9,10 @@ const PotentialFriendStyle = styled.p`
   font-family: "Lato";
 `;
 
-const PotentialFriend = ({ friend, handleClick }) => {
+const PotentialFriend = ({ potentialFriend, handleClick }) => {
   return (
-    <PotentialFriendStyle onClick={() => handleClick(friend)}>
-      {friend.firstname} {friend.lastname}
+    <PotentialFriendStyle onClick={() => handleClick(potentialFriend)}>
+      {potentialFriend.firstname} {potentialFriend.lastname}
     </PotentialFriendStyle>
   );
 };
