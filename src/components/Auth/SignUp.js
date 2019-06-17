@@ -34,10 +34,10 @@ const SignUp = props => {
   
   return (
     <SignUpForm>
-      <input id="firstname" onChange={handleFirstName} />
-      <input id="lastname" onChange={handleLastName} />
-      <input id="email" onChange={handleEmail} />
-      <input id="password" onChange={handlePassword} />
+      <input id="firstname" type="text" onChange={handleFirstName} />
+      <input id="lastname" type="text" onChange={handleLastName} />
+      <input id="email" type="email" onChange={handleEmail} />
+      <input id="password" type="password" onChange={handlePassword} />
       <button onClick={handleSubmit}>Signup</button>
     </SignUpForm>
   );

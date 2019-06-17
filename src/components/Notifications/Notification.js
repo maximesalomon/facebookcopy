@@ -1,7 +1,37 @@
 import React from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
 
-const NotificationStyle = styled.p`
+import { deleteNotification } from "../../store/actions/notificationActions";
+
+const Notification = (props) => {
+  const { id, user, content } = props.notif;
+  const deleteNotif = (notifId) => {
+    console.log(notifId);
+    props.deleteNotification(notifId);
+  }
+  return (
+    <NotificationStyle>
+      <p>{user} {content}</p>
+      <DeleteNotification onClick={() => deleteNotif(id)}>X</DeleteNotification>
+    </NotificationStyle>
+  );
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteNotification: notificationId => dispatch(deleteNotification(notificationId))
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Notification);
+
+const NotificationStyle = styled.div`
+  position: relative;
+  display: flex;
   padding: 16px;
   margin: 10px;
   border: 1px solid lightgray;
@@ -9,12 +39,7 @@ const NotificationStyle = styled.p`
   font-family: "Lato";
 `;
 
-const Notification = ({ notif }) => {
-  return (
-    <NotificationStyle>
-      {notif.user} {notif.content}
-    </NotificationStyle>
-  );
-};
-
-export default Notification;
+const DeleteNotification = styled.p`
+  position: absolute;
+  right: 16px;
+`;

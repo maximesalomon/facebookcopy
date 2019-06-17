@@ -24,8 +24,8 @@ const SignIn = props => {
   
   return (
     <SignInForm>
-      <input id="email" onChange={handleEmail} />
-      <input id="password" onChange={handlePassword} />
+      <input id="email" type="email" onChange={handleEmail} />
+      <input id="password" type="password" onChange={handlePassword} />
       <button onClick={handleSubmit}>Login</button>
     </SignInForm>
   );

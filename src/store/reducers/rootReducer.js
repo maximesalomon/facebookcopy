@@ -4,10 +4,12 @@ import { firebaseReducer } from "react-redux-firebase";
 
 import authReducer from "./authReducer";
 import postReducer from "./postReducer";
+import notificationReducer from "./notificationReducer";
 
 const rootReducer = combineReducers({
   auth: authReducer,
   post: postReducer,
+  notifiation: notificationReducer,
   firestore: firestoreReducer,
   firebase: firebaseReducer
 });

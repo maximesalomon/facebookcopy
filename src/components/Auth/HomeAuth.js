@@ -16,7 +16,7 @@ const HomeAuth = () => {
                 !isUser ? (
                     <>
                         <SignUp />
-                        <p onClick={() => setIsUser(true)}>Already have an account?</p>
+                        <p onClick={() => setIsUser(true)}>I already have an account</p>
                     </>
                 ) : 
                     <>
