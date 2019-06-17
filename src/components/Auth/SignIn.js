@@ -1,12 +1,7 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import { connect } from "react-redux";
 import { signIn } from "../../store/actions/authActions";
-
-const SignInForm = styled.form`
-  padding-top: 100px;
-  margin-left: 100px;
-`;
+import styled from "styled-components";
 
 const SignIn = props => {
   const [user, setUser] = useState({
@@ -52,3 +47,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(SignIn);
+
+const SignInForm = styled.div`
+  display: flex;
+  flex-direction: column;
+`

@@ -1,12 +1,7 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import { connect } from "react-redux";
 import { signUp } from "../../store/actions/authActions";
-
-const SignUpForm = styled.form`
-  padding-top: 100px;
-  margin-left: 100px;
-`;
+import styled from "styled-components";
 
 const SignUp = props => {
   const [user, setUser] = useState({
@@ -15,8 +10,6 @@ const SignUp = props => {
     email: "",
     password: ""
   });
-
-  console.log(user);
 
   const handleFirstName = e => {
     setUser({ ...user, firstname: e.target.value });
@@ -66,3 +59,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(SignUp);
+
+const SignUpForm = styled.div`
+  display: flex;
+  flex-direction: column;
+`
